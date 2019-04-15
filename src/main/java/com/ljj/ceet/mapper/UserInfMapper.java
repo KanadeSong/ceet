@@ -20,7 +20,7 @@ public interface UserInfMapper {
 
     List<UserInf> selectByExample(UserInfExample example);
 
-    UserInf selectByPrimaryKey(String id);
+    UserInf selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") UserInf record, @Param("example") UserInfExample example);
 

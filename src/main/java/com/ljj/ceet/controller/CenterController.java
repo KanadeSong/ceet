@@ -54,10 +54,17 @@ public class CenterController extends BaseController{
 
     }
 
-    @RequestMapping("/a")
-    public String test(){
+    @RequestMapping(value = "/index")
+    public String  test1(){
+        ModelAndView mav = new ModelAndView("index");
         log.info("aaa");
+        System.out.println("aaa");
         return "index";
+    }
+
+    @RequestMapping(value = "index")
+    public String test(){
+        return "index.html";
     }
 
 

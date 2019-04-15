@@ -92,7 +92,7 @@ public class NoticeController extends BaseController {
      * @Date 19:53 2019/4/14/014
      */
     @RequestMapping("/userInfo")
-    public ModelAndView userInfo(String id,HttpServletRequest request){
+    public ModelAndView userInfo(Integer id, HttpServletRequest request){
 
         UserInf userInf = hrmService.queryUserById(id);
 
@@ -128,10 +128,11 @@ public class NoticeController extends BaseController {
      * @return com.ljj.ceet.util.utils.LeeJSONResult
      * @author LeeJack
      * @Date 20:19 2019/4/14/014
+     * @param userId
      */
     @RequestMapping("/delete")
     @ResponseBody
-    public LeeJSONResult update(String userId){
+    public LeeJSONResult update(Integer userId){
         hrmService.deleteDeptById(userId);
         return LeeJSONResult.ok();
     }

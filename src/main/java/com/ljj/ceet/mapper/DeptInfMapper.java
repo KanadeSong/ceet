@@ -13,7 +13,7 @@ public interface DeptInfMapper {
 
     int deleteByExample(DeptInfExample example);
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(DeptInf record);
 

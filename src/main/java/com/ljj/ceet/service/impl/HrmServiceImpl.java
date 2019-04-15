@@ -60,7 +60,7 @@ public class HrmServiceImpl implements HrmService {
      * @Date 16:43 2019/4/13/013
      */
     @Override
-    public UserInf queryUserById(String userId) {
+    public UserInf queryUserById(Integer userId) {
         UserInf userInf = userInfMapper.selectByPrimaryKey(userId);
         return userInf;
     }
@@ -305,7 +305,7 @@ public class HrmServiceImpl implements HrmService {
      * @Date 19:33 2019/4/13/013
      */
     @Override
-    public void deleteDeptById(String id) {
+    public void deleteDeptById(Integer id) {
         deptInfMapper.deleteByPrimaryKey(id);
     }
 

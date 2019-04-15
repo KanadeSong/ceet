@@ -23,7 +23,7 @@ public interface HrmService {
      * @Date 16:43 2019/4/13/013
      * @param userId
      */
-    UserInf queryUserById(String userId);
+    UserInf queryUserById(Integer userId);
 
     /**
      *
@@ -146,7 +146,7 @@ public interface HrmService {
      * @Date 19:33 2019/4/13/013
      * @param id
      */
-    public void deleteDeptById(String id);
+    public void deleteDeptById(Integer id);
 
     /**
      *
