@@ -10,9 +10,9 @@
 		<meta http-equiv="expires" content="0" />    
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
 		<meta http-equiv="description" content="This is my page" />
-		<link href="/css/css.css" type="text/css" rel="stylesheet" />
-		<script type="text/javascript" src="/js/jquery-1.11.0.js"></script>
-		<script type="text/javascript" src="/js/jquery-migrate-1.2.1.js"></script>
+		<link href="${ctx}/css/css.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="${ctx }/js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="${ctx }/js/jquery-migrate-1.2.1.js"></script>
 		<script language="javascript" type="text/javascript"> 
 			$(function(){
 				/** 给左侧功能菜单绑定点击事件  */
@@ -42,8 +42,8 @@
 		  <tr><td class="left_nav_top"><div class="font1">用户管理</div></td></tr>
 		  <tr valign="top">
 		    <td class="left_nav_bgshw" height="50">
-			  <p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/selectUser" target="main">用户查询</a></p>
-			  <p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/addUser?flag=1" target="main">添加用户</a></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/selectUser" target="main">用户查询</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/addUser?flag=1" target="main">添加用户</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>
@@ -51,8 +51,8 @@
 		  <tr><td id="navbg1" class="left_nav_closed" ><div class="font1">部门管理</div></td></tr>
 		  <tr valign="top" id="submenu1" style="display: none">
 		    <td class="left_nav_bgshw" height="50">
-			  <p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="dept/selectDept" target="main">部门查询</a></p>
-			  <p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="dept/addDept?flag=1" target="main">添加部门</a></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="dept/selectDept" target="main">部门查询</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="dept/addDept?flag=1" target="main">添加部门</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>
@@ -60,8 +60,8 @@
 		  <tr><td id="navbg2" class="left_nav_closed" ><div class="font1">职位管理</div></td></tr>
 		  <tr valign="top" id="submenu2" style="display: none">
 		    <td class="left_nav_bgshw" height="50">
-			  <p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="job/selectJob" target="main">职位查询</a></p>
-			  <p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="job/addJob?flag=1" target="main">添加职位</a></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="job/selectJob" target="main">职位查询</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="job/addJob?flag=1" target="main">添加职位</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>
@@ -69,8 +69,8 @@
 		  <tr><td id="navbg3" class="left_nav_closed" ><div class="font1">员工管理</div></td></tr>
 		  <tr valign="top" id="submenu3" style="display: none">
 		    <td class="left_nav_bgshw" height="50">
-			  <p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="/employee/selectEmployee" target="main">员工查询</a></p>
-			  <p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="/employee/addEmployee?flag=1" target="main">添加员工</a></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/employee/selectEmployee" target="main">员工查询</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/employee/addEmployee?flag=1" target="main">添加员工</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>
@@ -78,8 +78,8 @@
 		  <tr><td id="navbg4" class="left_nav_closed" ><div class="font1">公告管理</div></td></tr>
 		  <tr valign="top" id="submenu4" style="display: none">
 		    <td class="left_nav_bgshw tdbtmline" height="50">
-			  <p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="/notice/selectNotice" target="main">公告查询</a></p>
-			  <p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="/notice/addNotice?flag=1" target="main">添加公告</a></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/notice/selectNotice" target="main">公告查询</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/notice/addNotice?flag=1" target="main">添加公告</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>
@@ -87,14 +87,14 @@
 		  <tr><td id="navbg5" class="left_nav_closed" onClick="showsubmenu(5)"><div class="font1">下载中心</div></td></tr>
 		  <tr valign="top" id="submenu5" style="display: none">
 		    <td class="left_nav_bgshw tdbtmline" height="50">
-		    	<p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="/document/selectDocument" target="main">文档查询</a></p>
-			  	<p class="left_nav_link"><img src="/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="/document/addDocument?flag=1" target="main">上传文档</a></p>
+		    	<p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/document/selectDocument" target="main">文档查询</a></img></p>
+			  	<p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx }/document/addDocument?flag=1" target="main">上传文档</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>
 		 
 		  <tr valign="top"><td height="100%" align="center"><div class="copycct"><br /><strong>技术支持：</strong><br><strong>雨落秋垣</strong><br>https://ceet-gov.top</div></td></tr>
-		  <tr><td height="10"><img src="/images/left_nav_bottom.gif" height="10"></img></td></tr>
+		  <tr><td height="10"><img src="${ctx}/images/left_nav_bottom.gif" height="10"></img></td></tr>
 		  <tr><td height="10" bgcolor="#e5f0ff">&nbsp;</td></tr>
 		</table>
 	</div>

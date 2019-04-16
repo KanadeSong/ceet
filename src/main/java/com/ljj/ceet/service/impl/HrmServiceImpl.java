@@ -5,17 +5,12 @@ import com.github.pagehelper.PageInfo;
 import com.ljj.ceet.entity.*;
 import com.ljj.ceet.mapper.*;
 import com.ljj.ceet.service.HrmService;
-import com.ljj.ceet.util.enums.YesOrNo;
 import com.ljj.ceet.util.pojo.JqGridResult;
-import com.ljj.ceet.vo.UserVO;
 import org.apache.commons.lang3.StringUtils;
 import org.n3r.idworker.Sid;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -90,25 +85,17 @@ public class HrmServiceImpl implements HrmService {
             uc.andUsernameLike("%" + userInf.getLoginname() + "%");
         }
 
-        uc.andStatusEqualTo(YesOrNo.NO.value);
+        if (userInf.getStatus() != null) {
+            uc.andStatusEqualTo(userInf.getStatus());
+        }
 
         List<UserInf> userInfList = userInfMapper.selectByExample(ue);
 
-        //转换userlist，使用数据字典
-        List<UserVO> newUserList = new ArrayList<>();
-
-        for (UserInf u : userInfList) {
-            UserVO newUser = new UserVO();
-            BeanUtils.copyProperties(u , newUser);
-
-            newUserList.add(newUser);
-        }
-
-        PageInfo<UserVO> pageList = new PageInfo<>(newUserList);
+        PageInfo<UserInf> pageList = new PageInfo<>(userInfList);
 
         JqGridResult grid = new JqGridResult();
         grid.setTotal(pageList.getPages());
-        grid.setRows(newUserList);
+        grid.setRows(userInfList);
         grid.setPage(pageList.getPageNum());
         grid.setRecords(pageList.getTotal());
 
@@ -124,7 +111,7 @@ public class HrmServiceImpl implements HrmService {
      * @Date 19:20 2019/4/13/013
      */
     @Override
-    public void deleteUserById(String userId) {
+    public void deleteUserById(Integer userId) {
         userInfMapper.updateByPrimaryKeySelective(userId);
     }
 
@@ -137,15 +124,10 @@ public class HrmServiceImpl implements HrmService {
      * @Date 19:22 2019/4/13/013
      */
     @Override
-    public boolean saveUser(UserInf userInf) {
+    public void saveUser(UserInf userInf) {
 
-        String userId = sid.nextShort();
-        userInf.setId(userId);
-        userInf.setCreatedate(new Date());
-        userInf.setStatus(YesOrNo.NO.value);
         int result = userInfMapper.insert(userInf);
 
-        return result == 1 ? true : false;
     }
 
     /**
@@ -157,7 +139,7 @@ public class HrmServiceImpl implements HrmService {
      * @Date 19:23 2019/4/13/013
      */
     @Override
-    public UserInf updateUserById(String user) {
+    public UserInf updateUserById(Integer user) {
         userInfMapper.updateByPrimaryKeySelective(user);
         return null;
     }

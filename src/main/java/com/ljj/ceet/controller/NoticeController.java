@@ -4,10 +4,10 @@ import com.ljj.ceet.entity.UserInf;
 import com.ljj.ceet.service.HrmService;
 import com.ljj.ceet.util.pojo.JqGridResult;
 import com.ljj.ceet.util.utils.LeeJSONResult;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletRequest;
  * @Date 2019/4/14/014 19:31
  * @Version 1.0
  */
-//@Controller
-//@RequestMapping("/notice")
+@Controller
+@RequestMapping("/notice")
 public class NoticeController extends BaseController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -40,17 +40,17 @@ public class NoticeController extends BaseController {
      * @author LeeJack
      * @Date 20:16 2019/4/14/014
      */
-    @RequestMapping("/saveOrUpdate")
+   /* @RequestMapping("/saveOrUpdate")
     @ResponseBody
     public LeeJSONResult saveOrUpdate(UserInf userInf){
-        String userId = userInf.getId();
+        Integer userId = userInf.getId();
         if (StringUtils.isEmpty(userId)){
             hrmService.saveUser(userInf);
         }else {
             hrmService.updateUserById(userId);
         }
         return LeeJSONResult.ok();
-    }
+    }*/
 
     /**
      * @return java.lang.String
@@ -111,7 +111,7 @@ public class NoticeController extends BaseController {
      * @Date 20:18 2019/4/14/014
      */
     @RequestMapping("/modifyUser")
-    public ModelAndView showModifyUser(String id,HttpServletRequest request){
+    public ModelAndView showModifyUser(Integer id, HttpServletRequest request){
 
         UserInf userInf = hrmService.updateUserById(id);
 

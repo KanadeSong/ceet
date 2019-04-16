@@ -44,7 +44,7 @@ public interface HrmService {
      * @Date 19:20 2019/4/13/013
      * @param userId
      */
-    void deleteUserById(String userId);
+    void deleteUserById(Integer userId);
 
     /**
      *
@@ -54,7 +54,7 @@ public interface HrmService {
      * @author LeeJack
      * @Date 19:22 2019/4/13/013
      */
-    boolean saveUser(UserInf userInf);
+    void saveUser(UserInf userInf);
 
     /**
      *
@@ -65,7 +65,7 @@ public interface HrmService {
      * @Date 19:23 2019/4/13/013
      * @param user
      */
-    UserInf updateUserById(String user);
+    UserInf updateUserById(Integer user);
 
     /**
      *

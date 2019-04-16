@@ -315,7 +315,7 @@ public class UserInfExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Integer value) {
+        public Criteria andStatusEqualTo(String  value) {
             addCriterion("STATUS =", value, "status");
             return (Criteria) this;
         }

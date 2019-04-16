@@ -3,23 +3,23 @@ package com.ljj.ceet.entity;
 import java.util.Date;
 
 public class UserInf {
-    private String id;
+    private Integer id;
 
     private String loginname;
 
     private String password;
 
-    private Integer status;
+    private String status;
 
     private Date createdate;
 
     private String username;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -39,11 +39,11 @@ public class UserInf {
         this.password = password == null ? null : password.trim();
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

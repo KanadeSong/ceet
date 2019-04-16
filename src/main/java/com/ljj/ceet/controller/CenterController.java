@@ -1,68 +1,82 @@
 package com.ljj.ceet.controller;
 
+import com.ljj.ceet.entity.UserInf;
+import com.ljj.ceet.service.HrmService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @CLassName CenterController
- * @Description TODO
+ * @Description 登录页面管理
  * @Author LeeJack
  * @Date 2019/4/15/015 18:11
  * @Version 1.0
  */
-//@Controller
+@Controller
 public class CenterController {
-   // final static Logger log = LoggerFactory.getLogger(CenterController.class);
+    final static Logger log = LoggerFactory.getLogger(CenterController.class);
 
-   // @Autowired
-  //  private HrmService hrmService;
+    @Autowired
+    private HrmService hrmService;
 
     //@Autowired
     //private ItzixiCaptcha itzixiCaptcha;
 
-   /* @RequestMapping(value="login")
-    public String  login(@RequestParam("loginname") String loginname,
-                              @RequestParam("password") String password,
-                              HttpSession session,
-                              ModelAndView mv){
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "loginForm";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ModelAndView login(@RequestParam("loginname") String loginname ,
+                              @RequestParam("password") String password ,
+                              HttpSession session ,
+                              ModelAndView mv) {
         // 调用业务逻辑组件判断用户是否可以登录
-       *//* UserInf user = new UserInf();
+        UserInf user = new UserInf();
         user.setLoginname(loginname);
         user.setPassword(password);
-        if(user != null){
+        if (loginname.equals("admin") && password.equals("123456")) {
             // 将用户保存到HttpSession当中
             //session.setAttribute(HrmConstants.USER_SESSION, user);
             // 客户端跳转到main页面
-            //mv.setViewName("redirect:/main");
-            mv.setViewName("test.html");
-        }else{
+            mv.setViewName("main");
+
+            // mv.setViewName("test.html");
+        } else {
             // 设置登录失败提示信息
-            mv.addObject("message", "登录名或密码错误!请重新输入");
+            mv.addObject("message" , "登录名或密码错误!请重新输入");
             // 服务器内部跳转到登录页面
-            mv.setViewName("forward:/loginForm");
+            mv.setViewName("loginForm");
         }
-        return mv;*//*
-       return "test.html";
+        return mv;
+    }
 
-    }*/
+    @RequestMapping(value = "/a",method = RequestMethod.GET)
+    public String test(){
+        return "a";
+    }
 
-    @RequestMapping("/index")
-    public ModelAndView  test1(){
-        ModelAndView mav = new ModelAndView("test");
-        System.out.println("aaa");
-        return mav;
+    @RequestMapping(value = "/b",method = RequestMethod.GET)
+    public String testb(){
+        return "b";
     }
 
 
-    /*@GetMapping(value = "/a")
-    public String test2(){
-        return "test.html";
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    public String test1(){
+        return "main";
     }
 
-    @GetMapping(value = "a")
-    public String test3(){
-        return "test.html";
-    }*/
+
 
     /*@RequestMapping("/center")
     public ModelAndView index() {

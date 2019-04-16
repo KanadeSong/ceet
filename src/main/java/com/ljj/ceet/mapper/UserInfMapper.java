@@ -26,7 +26,7 @@ public interface UserInfMapper {
 
     int updateByExample(@Param("record") UserInf record, @Param("example") UserInfExample example);
 
-    int updateByPrimaryKeySelective(String record);
+    int updateByPrimaryKeySelective(Integer record);
 
     int updateByPrimaryKey(UserInf record);
 }

@@ -3,42 +3,42 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
 <title>百度深蓝联盟</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <meta content="" name="description" />
 <meta content="" name="author" />
-<link href="/js/metronic/plugins/bootstrap/css/bootstrap.min.css"
+<link href="${ctx}/js/metronic/plugins/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
 <link
-	href="/js/metronic/plugins/bootstrap/css/bootstrap-responsive.min.css"
+	href="${ctx}/js/metronic/plugins/bootstrap/css/bootstrap-responsive.min.css"
 	rel="stylesheet" type="text/css" />
 <link
-	href="/js/metronic/plugins/font-awesome/css/font-awesome.min.css"
+	href="${ctx}/js/metronic/plugins/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
-<link href="/js/metronic/css/style-metro.css" rel="stylesheet"
+<link href="${ctx}/js/metronic/css/style-metro.css" rel="stylesheet"
 	type="text/css" />
-<link href="/js/metronic/css/style.css" rel="stylesheet"
+<link href="${ctx}/js/metronic/css/style.css" rel="stylesheet"
 	type="text/css" />
-<link href="/js/metronic/css/style-responsive.css" rel="stylesheet"
+<link href="${ctx}/js/metronic/css/style-responsive.css" rel="stylesheet"
 	type="text/css" />
-<link href="/js/metronic/css/themes/default.css" rel="stylesheet"
+<link href="${ctx}/js/metronic/css/themes/default.css" rel="stylesheet"
 	type="text/css" id="style_color" />
-<link href="/js/metronic/plugins/uniform/css/uniform.default.css"
+<link href="${ctx}/js/metronic/plugins/uniform/css/uniform.default.css"
 	rel="stylesheet" type="text/css" />
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL STYLES -->
-<link href="/js/metronic/css/pages/lock.css" rel="stylesheet"
+<link href="${ctx}/js/metronic/css/pages/lock.css" rel="stylesheet"
 	type="text/css" />
 <!-- END PAGE LEVEL STYLES -->
 <link rel="shortcut icon" href="favicon.ico" />
-<script type="text/javascript" src="/js/jquery-1.11.0.js"></script>
-<script type="text/javascript" src="/js/jquery-migrate-1.2.1.js"></script>
-<link href="/js/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />  
-<script src="/js/ligerUI/js/core/base.js" type="text/javascript"></script>
-<script src="/js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
-<script src="/js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
-<script src="/js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
+<script type="text/javascript" src="${ctx }/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="${ctx }/js/jquery-migrate-1.2.1.js"></script>
+<link href="${ctx }/js/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />  
+<script src="${ctx }/js/ligerUI/js/core/base.js" type="text/javascript"></script>
+<script src="${ctx }/js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+<script src="${ctx }/js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
+<script src="${ctx }/js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
 <script type="text/javascript">
    
    $(function(){
@@ -90,7 +90,7 @@
 		<form action="login" method="post" id="loginForm">
 			<div class="page-body">
 				<img class="page-lock-img"
-					src="/js/metronic/img/profile/logo2.jpg" alt="">
+					src="${ctx}/js/metronic/img/profile/logo2.jpg" alt="">
 				<div class="page-lock-info">
 					<span>&nbsp;</span> 
 					<c:choose>
@@ -142,27 +142,27 @@
 
 	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
 	<script
-		src="/js/metronic/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js"
+		src="${ctx}/js/metronic/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js"
 		type="text/javascript"></script>
-	<script src="/js/metronic/plugins/bootstrap/js/bootstrap.min.js"
+	<script src="${ctx}/js/metronic/plugins/bootstrap/js/bootstrap.min.js"
 		type="text/javascript"></script>
 	<!--[if lt IE 9]>
-   <script src="/js/metronic/plugins/excanvas.js"></script>
-   <script src="/js/metronic/plugins/respond.js"></script>  
+   <script src="${ctx}/js/metronic/plugins/excanvas.js"></script>
+   <script src="${ctx}/js/metronic/plugins/respond.js"></script>  
    <![endif]-->
-	<script src="/js/metronic/plugins/breakpoints/breakpoints.js"
+	<script src="${ctx}/js/metronic/plugins/breakpoints/breakpoints.js"
 		type="text/javascript"></script>
 	<!-- IMPORTANT! jquery.slimscroll.min.js depends on jquery-ui-1.10.1.custom.min.js -->
-	<script src="/js/metronic/plugins/uniform/jquery.uniform.min.js"
+	<script src="${ctx}/js/metronic/plugins/uniform/jquery.uniform.min.js"
 		type="text/javascript"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
 	<script
-		src="/js/metronic/plugins/backstretch/jquery.backstretch.min.js"
+		src="${ctx}/js/metronic/plugins/backstretch/jquery.backstretch.min.js"
 		type="text/javascript"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
-	<script src="/js/metronic/scripts/app.js"></script>
-	<script src="/js/metronic/scripts/lock.js"></script>
+	<script src="${ctx}/js/metronic/scripts/app.js"></script>
+	<script src="${ctx}/js/metronic/scripts/lock.js"></script>
 	<script>
 		$(function() {
 			App.init();
