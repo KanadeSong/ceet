@@ -1,15 +1,7 @@
 package com.ljj.ceet.controller;
 
-import com.ljj.ceet.service.HrmService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * @CLassName CenterController
@@ -18,23 +10,23 @@ import javax.servlet.http.HttpSession;
  * @Date 2019/4/15/015 18:11
  * @Version 1.0
  */
-@Controller
-public class CenterController extends BaseController{
-    final static Logger log = LoggerFactory.getLogger(CenterController.class);
+//@Controller
+public class CenterController {
+   // final static Logger log = LoggerFactory.getLogger(CenterController.class);
 
-    @Autowired
-    private HrmService hrmService;
+   // @Autowired
+  //  private HrmService hrmService;
 
     //@Autowired
     //private ItzixiCaptcha itzixiCaptcha;
 
-    @RequestMapping(value="login")
+   /* @RequestMapping(value="login")
     public String  login(@RequestParam("loginname") String loginname,
                               @RequestParam("password") String password,
                               HttpSession session,
                               ModelAndView mv){
         // 调用业务逻辑组件判断用户是否可以登录
-       /* UserInf user = new UserInf();
+       *//* UserInf user = new UserInf();
         user.setLoginname(loginname);
         user.setPassword(password);
         if(user != null){
@@ -42,40 +34,34 @@ public class CenterController extends BaseController{
             //session.setAttribute(HrmConstants.USER_SESSION, user);
             // 客户端跳转到main页面
             //mv.setViewName("redirect:/main");
-            mv.setViewName("index.html");
+            mv.setViewName("test.html");
         }else{
             // 设置登录失败提示信息
             mv.addObject("message", "登录名或密码错误!请重新输入");
             // 服务器内部跳转到登录页面
             mv.setViewName("forward:/loginForm");
         }
-        return mv;*/
-       return "index.html";
+        return mv;*//*
+       return "test.html";
 
-    }
+    }*/
 
-    @RequestMapping(value = "/index")
-    public String  test1(){
-        ModelAndView mav = new ModelAndView("index");
-        log.info("aaa");
+    @RequestMapping("/index")
+    public ModelAndView  test1(){
+        ModelAndView mav = new ModelAndView("test");
         System.out.println("aaa");
-        return "index";
-    }
-
-    @RequestMapping(value = "index")
-    public String test(){
-        return "index.html";
+        return mav;
     }
 
 
     /*@GetMapping(value = "/a")
     public String test2(){
-        return "index.html";
+        return "test.html";
     }
 
     @GetMapping(value = "a")
     public String test3(){
-        return "index.html";
+        return "test.html";
     }*/
 
     /*@RequestMapping("/center")
