@@ -23,13 +23,15 @@
 	<script type="text/javascript">
 	
 	$(function(){
+
     	/** 员工表单提交 */
 		$("#userForm").submit(function(){
 			var username = $("#username");
-			var status = $("#status");
+			var status = $("#status")+"";
 			var loginname = $("#loginname");
 			var password = $("#password");
 			var msg = "";
+			console.log(status==0)
 			if ($.trim(username.val()) == ""){
 				msg = "姓名不能为空！";
 				username.focus();

@@ -3,7 +3,7 @@ package com.ljj.ceet.entity;
 import java.util.Date;
 
 public class EmployeeInf {
-    private String id;
+    private Integer id;
 
     private Integer deptId;
 
@@ -43,11 +43,11 @@ public class EmployeeInf {
 
     private Date createDate;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

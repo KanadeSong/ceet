@@ -81,11 +81,7 @@ public class HrmServiceImpl implements HrmService {
             uc.andUsernameLike("%" + userInf.getUsername() + "%");
         }
 
-        if (StringUtils.isNotEmpty(userInf.getLoginname())) {
-            uc.andUsernameLike("%" + userInf.getLoginname() + "%");
-        }
-
-        if (userInf.getStatus() != null) {
+        if (StringUtils.isNotEmpty(userInf.getStatus())) {
             uc.andStatusEqualTo(userInf.getStatus());
         }
 
@@ -112,7 +108,20 @@ public class HrmServiceImpl implements HrmService {
      */
     @Override
     public void deleteUserById(Integer userId) {
-        userInfMapper.updateByPrimaryKeySelective(userId);
+        userInfMapper.deleteByPrimaryKey(userId);
+    }
+
+    /**
+     * @param ids
+     * @return void
+     * @Description: 根据复数id删除用户
+     * @Param [ids]
+     * @author LeeJack
+     * @Date 11:34 2019/4/17/017
+     */
+    @Override
+    public void deleteUserByIds(String ids) {
+
     }
 
     /**
@@ -139,7 +148,7 @@ public class HrmServiceImpl implements HrmService {
      * @Date 19:23 2019/4/13/013
      */
     @Override
-    public UserInf updateUserById(Integer user) {
+    public UserInf updateUserById(UserInf user) {
         userInfMapper.updateByPrimaryKeySelective(user);
         return null;
     }
@@ -214,8 +223,7 @@ public class HrmServiceImpl implements HrmService {
      */
     @Override
     public void saveEmployee(EmployeeInf employee) {
-        String employeeId = sid.nextShort();
-        employee.setId(employeeId);
+
 
         employeeInfMapper.insert(employee);
     }
@@ -291,6 +299,7 @@ public class HrmServiceImpl implements HrmService {
         deptInfMapper.deleteByPrimaryKey(id);
     }
 
+
     /**
      * @param dept
      * @return void
@@ -301,8 +310,7 @@ public class HrmServiceImpl implements HrmService {
      */
     @Override
     public void saveDept(DeptInf dept) {
-        String deptId = sid.nextShort();
-        dept.setId(deptId);
+
         deptInfMapper.insert(dept);
     }
 
@@ -372,8 +380,7 @@ public class HrmServiceImpl implements HrmService {
      */
     @Override
     public void saveJob(JobInf job) {
-        String jobId = sid.nextShort();
-        job.setId(jobId);
+
         jobInfMapper.insert(job);
     }
 
@@ -473,8 +480,7 @@ public class HrmServiceImpl implements HrmService {
      */
     @Override
     public void saveNotice(NoticeInf notice) {
-        String noticeId = sid.nextShort();
-        notice.setId(noticeId);
+
         noticeInfMapper.insert(notice);
     }
 
@@ -529,8 +535,7 @@ public class HrmServiceImpl implements HrmService {
      */
     @Override
     public void saveDocument(DocumentInf document) {
-        String documentId = sid.nextShort();
-        document.setId(documentId);
+
         documentInfMapper.insert(document);
     }
 

@@ -3,10 +3,10 @@ package com.ljj.ceet.controller;
 import com.ljj.ceet.entity.UserInf;
 import com.ljj.ceet.service.HrmService;
 import com.ljj.ceet.util.pojo.JqGridResult;
-import com.ljj.ceet.util.tag.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,7 +38,7 @@ public class UserController extends BaseController {
     public ModelAndView updateUser(
             String flag ,
             @ModelAttribute UserInf user ,
-            ModelAndView mv) {
+            ModelAndView mv, BindingResult bindingResult) {
         if (flag.equals("1")) {
             // 根据id查询用户
             UserInf target = hrmService.queryUserById(user.getId());
@@ -48,7 +48,7 @@ public class UserController extends BaseController {
             mv.setViewName("user/showUpdateUser");
         } else {
             // 执行修改操作
-            hrmService.updateUserById(user.getId());
+            hrmService.updateUserById(user);
             // 设置客户端跳转到查询请求
             mv.setViewName("redirect:/user/selectUser");
         }
@@ -71,17 +71,18 @@ public class UserController extends BaseController {
             pageIndex = 1;
         }
         JqGridResult result = hrmService.queryUserList(userInf , pageIndex , pageSize);
-        PageModel pageModel = new PageModel();
-        pageModel.setPageIndex(pageIndex);
-        List<UserInf> users = (List<UserInf>) result.getRows();
 
+        List<UserInf> users = (List<UserInf>) result.getRows();
+        String username = userInf.getUsername();
+        model.addAttribute("username",username);
+        model.addAttribute("status",userInf.getStatus());
         model.addAttribute("users" , users);
-        model.addAttribute("pageModel" , pageModel);
+        model.addAttribute("result" , result);
         return "user/user";
     }
 
     /**
-     * @param userId
+     * @param ids
      * @return com.ljj.ceet.util.utils.LeeJSONResult
      * @Description: 删除用户
      * @Param [userId]
@@ -89,8 +90,12 @@ public class UserController extends BaseController {
      * @Date 20:19 2019/4/14/014
      */
     @RequestMapping("/removeUser")
-    public ModelAndView update(Integer userId , ModelAndView mv) {
-        hrmService.deleteDeptById(userId);
+    public ModelAndView deleteUsers(String ids , ModelAndView mv) {
+        // 分解id字符串
+        String[] idArray = ids.split(",");
+        for (String id : idArray) {
+            hrmService.deleteUserById(Integer.valueOf(id));
+        }
         mv.setViewName("redirect:/user/selectUser");
         return mv;
     }
@@ -105,15 +110,19 @@ public class UserController extends BaseController {
     @RequestMapping(value = "/addUser")
     public ModelAndView addUser(
             String flag ,
-            @ModelAttribute UserInf user ,
-            ModelAndView mv) {
+            UserInf userInf ,
+            ModelAndView mv , BindingResult bindingResult) {
         if (flag.equals("1")) {
             // 设置跳转到添加页面
             mv.setViewName("user/showAddUser");
         } else {
+            /*UserInf userInf= new UserInf();
+            userInf.setUsername(username);
+            userInf.setStatus(status);
+            userInf.setLoginname(loginname);
+            userInf.setPassword(password);*/
             // 执行添加操作
-            System.out.println(user.getStatus());
-            hrmService.saveUser(user);
+            hrmService.saveUser(userInf);
             // 设置客户端跳转到查询请求
             mv.setViewName("redirect:/user/selectUser");
         }

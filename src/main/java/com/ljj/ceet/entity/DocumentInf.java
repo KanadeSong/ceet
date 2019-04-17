@@ -3,7 +3,7 @@ package com.ljj.ceet.entity;
 import java.util.Date;
 
 public class DocumentInf {
-    private String id;
+    private Integer id;
 
     private String title;
 
@@ -15,11 +15,11 @@ public class DocumentInf {
 
     private Integer userId;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

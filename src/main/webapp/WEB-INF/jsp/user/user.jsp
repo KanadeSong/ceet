@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<%@ taglib prefix="fkjava" uri="/pager-tags" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -52,7 +53,7 @@
 	 				   if(r){
 	 					   // alert("删除："+ids.get());
 	 					   // 发送请求
-	 					   window.location = "${ctx }/user/removeUser?ids=" + ids.get();
+	 					   window.location = "${ctx}/user/removeUser?ids=" + ids.get();
 	 				   }
 	 			   });
 	 		   }
@@ -82,8 +83,8 @@
 				    <table width="100%" border="0" cellpadding="0" cellspacing="0">
 					  <tr>
 					    <td class="font3">
-					    	用户名：<input type="text" name="username">
-					    	用户状态：<input type="text" name="status">
+					    	用户名：<input type="text" name="username" value="${requestScope.username}">
+					    	用户状态：<input type="text" name="status" value="${requestScope.status}">
 					    	 <input type="submit" value="搜索"/>
 					    	<input id="delete" type="button" value="删除"/>
 					    </td>
@@ -129,11 +130,11 @@
 	  <!-- 分页标签 -->
 	  <tr valign="top"><td align="center" class="font3">
 	  	 <fkjava:pager
-	  	        pageIndex="${requestScope.pageModel.pageIndex}" 
-	  	        pageSize="${requestScope.pageModel.pageSize}" 
-	  	        recordCount="${requestScope.pageModel.recordCount}" 
+	  	        pageIndex="${requestScope.result.page}"
+	  	        pageSize="10"
+	  	        recordCount="${requestScope.result.records}"
 	  	        style="digg"
-	  	        submitUrl="${ctx}/employee/selectEmployee?pageIndex={0}"/>
+	  	        submitUrl="${ctx}/user/selectUser?pageIndex={0}&username=${requestScope.username}"/>
 	  </td></tr>
 	</table>
 	<div style="height:10px;"></div>
