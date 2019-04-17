@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<%@ taglib prefix="fkjava" uri="/pager-tags" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -126,12 +127,12 @@
 	  </tr>
 	  <!-- 分页标签 -->
 	  <tr valign="top"><td align="center" class="font3">
-	  	 <fkjava:pager
-	  	        pageIndex="${requestScope.pageModel.pageIndex}" 
-	  	        pageSize="${requestScope.pageModel.pageSize}" 
-	  	        recordCount="${requestScope.pageModel.recordCount}" 
-	  	        style="digg"
-	  	        submitUrl="${ctx}/dept/selectDept?pageIndex={0}"/>
+		  <fkjava:pager
+		  pageIndex="${requestScope.result.page}"
+		  pageSize="10"
+		  recordCount="${requestScope.result.records}"
+		  style="digg"
+		  submitUrl="${ctx}/dept/selectDept?pageIndex={0}&name=${requestScope.name}"/>
 	  </td></tr>
 	</table>
 	<div style="height:10px;"></div>

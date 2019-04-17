@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<%@ taglib prefix="fkjava" uri="/pager-tags" %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -59,14 +61,14 @@
 	 				   if(r){
 	 					   // alert("删除："+ids.get());
 	 					   // 发送请求
-	 					   window.location = "${ctx }/notice/removeNotice?ids=" + ids.get();
+	 					   window.location = "${ctx}/notice/removeNotice?ids=" + ids.get();
 	 				   }
 	 			   });
 	 		   }
 	 	   })
 		
 		/** 给预览绑定点击事件 */
-		$("a[id^='prev_'").click(function(){
+		$("a[id^='prev_']").click(function(){
 			var noticeId = this.id.replace('prev_','');
 			$.ligerDialog.open({ 
 				title:'预览公告',
@@ -154,14 +156,14 @@
 		</td>
 	  </tr>
 	  <!-- 分页标签 -->
-	  <tr valign="top"><td align="center" class="font3">
-	  	 <fkjava:pager
-	  	        pageIndex="${requestScope.pageModel.pageIndex}" 
-	  	        pageSize="${requestScope.pageModel.pageSize}" 
-	  	        recordCount="${requestScope.pageModel.recordCount}" 
-	  	        style="digg"
-	  	        submitUrl="${ctx}/employee/selectEmployee?pageIndex={0}"/>
-	  </td></tr>
+		<tr valign="top"><td align="center" class="font3">
+			<fkjava:pager
+					pageIndex="${requestScope.result.page}"
+					pageSize="10"
+					recordCount="${requestScope.result.records}"
+					style="digg"
+					submitUrl="${ctx}/notic/selectNotic?pageIndex={0}&title=${requestScope.title}&content={requestScope.content}"/>
+		</td></tr>
 	</table>
 	<div style="height:10px;"></div>
 </body>

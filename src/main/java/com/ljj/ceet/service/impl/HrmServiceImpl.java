@@ -257,6 +257,11 @@ public class HrmServiceImpl implements HrmService {
         PageHelper.startPage(page , pageSize);
 
         DeptInfExample deptInfExample = new DeptInfExample();
+        DeptInfExample.Criteria dc = deptInfExample.createCriteria();
+
+        if (StringUtils.isNotEmpty(dept.getName())){
+            dc.andNameLike("%"+dept.getName()+"%");
+        }
 
         List<DeptInf> result = deptInfMapper.selectByExample(deptInfExample);
 

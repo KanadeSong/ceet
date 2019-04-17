@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<%@ taglib prefix="fkjava" uri="/pager-tags" %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -171,9 +173,9 @@
 	  <!-- 分页标签 -->
 	  <tr valign="top"><td align="center" class="font3">
 	  	   <fkjava:pager 
-	  	      pageIndex="${pageModel.pageIndex}" 
-	  	      pageSize="${pageModel.pageSize}" 
-	  	      recordCount="${pageModel.recordCount}" 
+	  	      pageIndex="${requestScope.result.page}"
+	  	      pageSize="10"
+	  	      recordCount="${requestScope.result.records}"
 	  	      submitUrl="${ctx}/document/selectDocument.action?pageModel.pageIndex={0}&document.title=${document.title}"
 	  	      style="flickr"
 	  	      />

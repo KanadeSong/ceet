@@ -74,8 +74,8 @@ public class UserController extends BaseController {
 
         List<UserInf> users = (List<UserInf>) result.getRows();
         String username = userInf.getUsername();
-        model.addAttribute("username",username);
-        model.addAttribute("status",userInf.getStatus());
+        /*model.addAttribute("username",username);
+        model.addAttribute("status",userInf.getStatus());*/
         model.addAttribute("users" , users);
         model.addAttribute("result" , result);
         return "user/user";

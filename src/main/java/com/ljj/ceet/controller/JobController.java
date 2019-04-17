@@ -45,8 +45,7 @@ public class JobController extends BaseController {
 
         List<JobInf> jobs = (List<JobInf>) result.getRows();
 
-		/*model.addAttribute("jobname",job.getJobname());
-		model.addAttribute("status",job.getStatus());*/
+		model.addAttribute("name",job.getName());
         model.addAttribute("jobs" , jobs);
         model.addAttribute("result" , result);
         return "job/job";

@@ -1,7 +1,6 @@
 package com.ljj.ceet.controller;
 
 import com.ljj.ceet.entity.DeptInf;
-import com.ljj.ceet.entity.UserInf;
 import com.ljj.ceet.service.HrmService;
 import com.ljj.ceet.util.pojo.JqGridResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,18 +35,18 @@ public class DeptController extends BaseController {
 	 * @author LeeJack
 	 * @Date 19:49 2019/4/14/014
 	 */
-	@RequestMapping("/selectUser")
-	public String selectDept(Model model, Integer pageIndex,
-							 @ModelAttribute DeptInf dept) {
+	@RequestMapping("/selectDept")
+	public String selectDept( Integer pageIndex,
+							 @ModelAttribute DeptInf dept,Model model) {
 		if (pageIndex == null) {
 			pageIndex = 1;
 		}
 		JqGridResult result = hrmService.queryDeptList(dept , pageIndex , pageSize);
 
-		List<UserInf> depts = (List<UserInf>) result.getRows();
+		List<DeptInf> depts = (List<DeptInf>) result.getRows();
 
-		/*model.addAttribute("deptname",dept.getUsername());
-		model.addAttribute("status",dept.getStatus());*/
+		model.addAttribute("name",dept.getName());
+
 		model.addAttribute("depts" , depts);
 		model.addAttribute("result" , result);
 		return "dept/dept";

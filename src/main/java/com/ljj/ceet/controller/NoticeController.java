@@ -45,8 +45,8 @@ public class NoticeController extends BaseController {
 
         List<NoticeInf> notices = (List<NoticeInf>) result.getRows();
 
-		/*model.addAttribute("noticename",notice.getNoticename());
-		model.addAttribute("status",notice.getStatus());*/
+		model.addAttribute("title",notice.getTitle());
+		model.addAttribute("content",notice.getContent());
         model.addAttribute("notices" , notices);
         model.addAttribute("result" , result);
         return "notice/notice";

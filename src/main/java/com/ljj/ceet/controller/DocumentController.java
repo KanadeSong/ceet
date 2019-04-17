@@ -45,8 +45,7 @@ public class DocumentController extends BaseController {
 
 		List<DocumentInf> documents = (List<DocumentInf>) result.getRows();
 
-		/*model.addAttribute("documentname",document.getDocumentname());
-		model.addAttribute("status",document.getStatus());*/
+		model.addAttribute("title",document.getTitle());
 		model.addAttribute("documents" , documents);
 		model.addAttribute("result" , result);
 		return "document/document";
